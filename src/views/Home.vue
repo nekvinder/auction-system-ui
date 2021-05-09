@@ -1,9 +1,10 @@
 <template>
   <div></div>
-  <h1>Auction : {{ ws.auction.value ? 'Joined' : 'Not Connected' }}</h1>
+  <h1>Auction : {{ ws.auction.value ? (ws.auction.value.isExpired ? 'Over' : 'Joined') : 'Not Connected' }}</h1>
+  <h1 v-if="ws.auction.value && ws.auction.value.isExpired">Winning bid : {{ ws.auction.value.currentBid }}</h1>
   <h3>
     <div class="home">
-      <table v-if="ws.auction.value">
+      <table v-if="ws.auction.value && !ws.auction.value.isExpired">
         <tr>
           <th>Auction Name:</th>
           <td>{{ ws.auction.value.auctionName }}</td>

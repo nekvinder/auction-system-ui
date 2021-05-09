@@ -53,6 +53,7 @@ export interface Auction {
   auctionId: string
   auctionName: string
   remainingTime: number
+  isExpired: boolean
   connectedUsers: number
   currentBid: number
 }
