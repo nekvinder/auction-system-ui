@@ -31,7 +31,7 @@ export const disconnect = () => {
 
 export const sendBid = (bidAmount: number) => {
   const data = `[${uuidv4()},PUT_BID,` + JSON.stringify({ auctionId: auction.value?.auctionId, newBid: bidAmount }) + ']'
-  console.log(1, 'sending', data)
+  console.log('SENDING ', data)
   if (ws.value) ws.value.send(data)
 }
 
